@@ -412,5 +412,27 @@ const BOOKS = [
       { title: "Part VI: Communicating, Perceiving, and Acting", description: "NLP, computer vision, and robotics.", subsections: [{ label: "Chapters", items: [{ name: "Ch 23: Natural Language Processing", desc: "Language models, parsing, information extraction, and text understanding systems" }, { name: "Ch 24: Deep Learning for NLP", desc: "Transformers, attention mechanisms, and large language models for language tasks" }, { name: "Ch 25: Computer Vision", desc: "Image classification, object detection, segmentation, and visual scene understanding" }, { name: "Ch 26: Robotics", desc: "Perception, planning, and control for physical agents operating in real-world environments" }] }] },
       { title: "Part VII: Conclusions", description: "The big questions of AI.", subsections: [{ label: "Chapters", items: [{ name: "Ch 27: Philosophy, Ethics, Safety, and the Future of AI", desc: "Existential questions about AI alignment, consciousness, and societal impact" }] }] }
     ]
+  },
+  {
+    id: 16,
+    title: "AI Engineering",
+    subtitle: "Building Applications with Foundation Models (2025)",
+    author: "Chip Huyen (O'Reilly Media)",
+    section: "technical",
+    icon: "\u{1F6E0}\u{FE0F}",
+    gradient: "linear-gradient(135deg, #0f2027, #2c5364)",
+    summary: "A comprehensive guide to building reliable applications on top of foundation models, covering evaluation, prompt engineering, RAG, agents, finetuning, dataset engineering, inference optimization, and end-to-end AI system architecture.",
+    chapters: [
+      { title: "Chapter 1: Introduction to AI Engineering", description: "How foundation models created a new discipline distinct from traditional ML engineering.", subsections: [{ label: "Key Ideas", items: [{ name: "A New Discipline", desc: "How foundation models created a new discipline distinct from traditional ML engineering" }] }] },
+      { title: "Chapter 2: Understanding Foundation Models", description: "Transformer architectures, training data, self-supervision, and multimodal model design.", subsections: [{ label: "Key Ideas", items: [{ name: "Foundation Model Internals", desc: "Transformer architectures, training data, self-supervision, and multimodal model design" }] }] },
+      { title: "Chapter 3: Evaluation Methodology", description: "Aligning model evaluation with business KPIs and benchmarks.", subsections: [{ label: "Key Ideas", items: [{ name: "Evaluation Approaches", desc: "Aligning model evaluation with business KPIs, benchmarks, and AI-as-a-judge approaches" }] }] },
+      { title: "Chapter 4: Sampling and Structured Outputs", description: "Decoding strategies, token sampling, and constraining model outputs.", subsections: [{ label: "Key Ideas", items: [{ name: "Output Control", desc: "Decoding strategies, token sampling, and constraining model outputs for reliability" }] }] },
+      { title: "Chapter 5: Prompt Engineering", description: "Systematic approaches to prompt design and optimization.", subsections: [{ label: "Key Ideas", items: [{ name: "Prompt Design", desc: "Systematic approaches to prompt design, chain-of-thought, few-shot learning, and optimization" }] }] },
+      { title: "Chapter 6: RAG and Agents", description: "Retrieval-augmented generation architectures and agentic workflows.", subsections: [{ label: "Key Ideas", items: [{ name: "RAG & Agentic Patterns", desc: "Retrieval-augmented generation architectures, agentic workflows, and tool-use patterns" }] }] },
+      { title: "Chapter 7: Finetuning", description: "When and how to finetune foundation models.", subsections: [{ label: "Key Ideas", items: [{ name: "Model Adaptation", desc: "When and how to finetune foundation models using LoRA and other adaptation strategies" }] }] },
+      { title: "Chapter 8: Dataset Engineering", description: "Data quality, curation, and synthetic data generation.", subsections: [{ label: "Key Ideas", items: [{ name: "Data Quality", desc: "Data quality, curation, deduplication, and synthetic data generation for AI applications" }] }] },
+      { title: "Chapter 9: Inference Optimization", description: "Latency reduction, cost management, and serving at scale.", subsections: [{ label: "Key Ideas", items: [{ name: "Serving at Scale", desc: "Latency reduction, cost management, quantization, KV caching, and serving at scale" }] }] },
+      { title: "Chapter 10: AI Engineering Architecture and User Feedback", description: "End-to-end system design and continuous improvement.", subsections: [{ label: "Key Ideas", items: [{ name: "System Architecture", desc: "End-to-end system design, monitoring, and continuous improvement loops" }] }] }
+    ]
   }
 ];
