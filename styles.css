@@ -492,6 +492,23 @@ body {
   font-weight: 500;
 }
 
+/* Real cover photos */
+.book-cover .cover-photo,
+.detail-cover .cover-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.book-cover-gradient,
+.book-cover-icon {
+  transition: opacity 0.3s ease;
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {

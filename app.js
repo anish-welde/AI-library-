@@ -1,5 +1,47 @@
 // ── State ──────────────────────────────────────────────────────
 let currentSection = "all";
+const coverCache = {}; // bookId -> cover URL or null
+
+// ── Book Cover Fetching ─────────────────────────────────────────
+async function fetchCover(book) {
+  if (coverCache[book.id] !== undefined) return coverCache[book.id];
+  try {
+    const q = encodeURIComponent(`intitle:${book.title} inauthor:${book.author.split(",")[0]}`);
+    const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${q}&maxResults=1&fields=items/volumeInfo/imageLinks`);
+    const data = await res.json();
+    const raw = data?.items?.[0]?.volumeInfo?.imageLinks?.thumbnail || null;
+    // Use higher-res version and force HTTPS
+    const url = raw ? raw.replace("http://", "https://").replace("zoom=1", "zoom=0").replace("&edge=curl", "") : null;
+    coverCache[book.id] = url;
+    return url;
+  } catch {
+    coverCache[book.id] = null;
+    return null;
+  }
+}
+
+function applyCoverToElement(el, url) {
+  if (!url || !el) return;
+  const img = document.createElement("img");
+  img.src = url;
+  img.alt = "";
+  img.className = "cover-photo";
+  img.onload = () => {
+    el.querySelector(".book-cover-gradient")?.style.setProperty("opacity", "0");
+    el.querySelector(".book-cover-icon")?.style.setProperty("display", "none");
+    el.appendChild(img);
+  };
+}
+
+async function loadCovers() {
+  for (const book of BOOKS) {
+    const url = await fetchCover(book);
+    if (url) {
+      const card = bookGrid.querySelector(`.book-card[data-id="${book.id}"] .book-cover`);
+      applyCoverToElement(card, url);
+    }
+  }
+}
 
 // ── DOM References ─────────────────────────────────────────────
 const libraryView = document.getElementById("library-view");
@@ -25,7 +67,7 @@ function renderGrid(section) {
 
   bookGrid.innerHTML = filtered.map(book => `
     <div class="book-card" data-id="${book.id}">
-      <div class="book-cover">
+      <div class="book-cover" data-id="${book.id}">
         <div class="book-cover-gradient" style="background: ${book.gradient}"></div>
         <span class="book-cover-icon">${book.icon}</span>
         <span class="book-cover-number">${book.id}</span>
@@ -37,6 +79,9 @@ function renderGrid(section) {
       </div>
     </div>
   `).join("");
+
+  // Load real cover photos
+  loadCovers();
 
   // Attach click handlers
   bookGrid.querySelectorAll(".book-card").forEach(card => {
@@ -130,6 +175,14 @@ function openBook(book) {
   // Show book view with slide-in animation
   bookView.classList.remove("hidden");
   bookView.scrollTop = 0;
+
+  // Apply cover photo to detail view
+  const detailCoverEl = bookDetail.querySelector(".detail-cover");
+  if (coverCache[book.id]) {
+    applyCoverToElement(detailCoverEl, coverCache[book.id]);
+  } else {
+    fetchCover(book).then(url => applyCoverToElement(detailCoverEl, url));
+  }
 }
 
 function closeBook() {
