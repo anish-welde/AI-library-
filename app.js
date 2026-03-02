@@ -28,20 +28,44 @@ async function fetchGoogleCover(book) {
 function tryLoadImage(src) {
   return new Promise(resolve => {
     const img = new Image();
-    img.onload = () => resolve(img.naturalWidth > 1 ? src : null);
+    img.onload = () => resolve(img.naturalWidth > 1 && img.naturalHeight > 1 ? src : null);
     img.onerror = () => resolve(null);
     img.src = src;
   });
 }
 
+async function tryFirstWorking(urls) {
+  for (const url of urls) {
+    if (!url) continue;
+    const ok = await tryLoadImage(url);
+    if (ok) return ok;
+  }
+  return null;
+}
+
+function getIsbnFromUrl(coverUrl) {
+  const m = coverUrl && coverUrl.match(/\/isbn\/(\d{10,13})-/);
+  return m ? m[1] : null;
+}
+
 async function fetchCover(book) {
   if (coverCache[book.id] !== undefined) return coverCache[book.id];
-  // 1) Try hardcoded Open Library URL
-  if (book.coverUrl) {
-    const ok = await tryLoadImage(book.coverUrl);
-    if (ok) { coverCache[book.id] = book.coverUrl; return book.coverUrl; }
-  }
-  // 2) Fall back to Google Books API
+  const isbn = getIsbnFromUrl(book.coverUrl);
+  // Build candidate URLs in priority order
+  const candidates = [
+    // 1) Open Library ISBN-13
+    book.coverUrl,
+    // 2) Book-specific alternate URLs (Google Books volume IDs, alt ISBNs, etc.)
+    ...(book.altCoverUrls || []),
+    // 3) Google Books direct ISBN cover (no API key needed)
+    isbn ? `https://books.google.com/books/content?vid=isbn:${isbn}&printsec=frontcover&img=1&zoom=1` : null,
+    // 4) Open Library with ISBN-10
+    isbn && isbn.length === 13 ? `https://covers.openlibrary.org/b/isbn/${toIsbn10(isbn)}-L.jpg` : null,
+  ];
+  // Try all static candidates first
+  const staticUrl = await tryFirstWorking(candidates);
+  if (staticUrl) { coverCache[book.id] = staticUrl; return staticUrl; }
+  // 4) Fall back to Google Books search API
   const gUrl = await fetchGoogleCover(book);
   if (gUrl) {
     const ok = await tryLoadImage(gUrl);
@@ -49,6 +73,15 @@ async function fetchCover(book) {
   }
   coverCache[book.id] = null;
   return null;
+}
+
+function toIsbn10(isbn13) {
+  if (!isbn13 || isbn13.length !== 13) return null;
+  const digits = isbn13.slice(3, 12);
+  let sum = 0;
+  for (let i = 0; i < 9; i++) sum += (10 - i) * Number(digits[i]);
+  const check = (11 - (sum % 11)) % 11;
+  return digits + (check === 10 ? "X" : String(check));
 }
 
 function applyCoverToElement(el, url) {

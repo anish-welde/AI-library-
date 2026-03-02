@@ -144,6 +144,10 @@ const BOOKS = [
     icon: "\u{1F451}",
     gradient: "linear-gradient(135deg, #667eea, #764ba2)",
     coverUrl: "https://covers.openlibrary.org/b/isbn/9781668098349-L.jpg",
+    altCoverUrls: [
+      "https://books.google.com/books/content?id=EEtCEQAAQBAJ&printsec=frontcover&img=1&zoom=1",
+      "https://covers.openlibrary.org/b/isbn/9781668098356-L.jpg"
+    ],
     summary: "A comprehensive guide from McKinsey on how to excel at every stage of the CEO journey\u2014from preparing for the role through leaving a lasting legacy, featuring case studies from Dell, Merck, Nasdaq, and more.",
     chapters: [
       { title: "Part I: Spring \u2014 Preparing to Lead", description: "How aspiring CEOs should prepare for the transition.", subsections: [{ label: "Key Themes", items: [{ name: "Stepping Up to the Role", desc: "How aspiring CEOs should prepare for the transition before they take the seat" }, { name: "The Blind Spots Survey", desc: "Research-based data on what catches new CEOs off guard most often" }] }] },
@@ -180,6 +184,10 @@ const BOOKS = [
     icon: "\u{26A1}",
     gradient: "linear-gradient(135deg, #00c6ff, #0072ff)",
     coverUrl: "https://covers.openlibrary.org/b/isbn/9781394207114-L.jpg",
+    altCoverUrls: [
+      "https://books.google.com/books/content?id=sRO5zwEACAAJ&printsec=frontcover&img=1&zoom=1",
+      "https://covers.openlibrary.org/b/isbn/9781394207121-L.jpg"
+    ],
     summary: "A comprehensive field guide from McKinsey Digital on enterprise-wide digital and AI transformation\u2014covering roadmaps, talent, operating models, technology, data, and adoption at scale.",
     chapters: [
       { title: "Introduction", description: "Digital transformation is about rewiring the entire enterprise, not running isolated tech projects.", subsections: [{ label: "Key Themes", items: [{ name: "Enterprise Capabilities for Competitive Advantage", desc: "Digital transformation is about rewiring the entire enterprise, not running isolated tech projects" }] }] },
@@ -339,6 +347,10 @@ const BOOKS = [
     icon: "\u{1F30D}",
     gradient: "linear-gradient(135deg, #56ab2f, #a8e063)",
     coverUrl: "https://covers.openlibrary.org/b/isbn/9781647691752-L.jpg",
+    altCoverUrls: [
+      "https://covers.openlibrary.org/b/isbn/9781647691745-L.jpg",
+      "https://covers.openlibrary.org/b/isbn/9781647691769-L.jpg"
+    ],
     summary: "A multidisciplinary exploration of whether capitalism can be reformed for sustainability\u2014examining foundations, the American model, corporate governance, human rights, cooperatives, regulation, and environmental law.",
     chapters: [
       { title: "Part I: Foundations of Capitalism", description: "Philosophical and economic underpinnings.", subsections: [{ label: "Chapters", items: [{ name: "Ch 1: Defining the Undefinable (Inara Scott)", desc: "Capitalism is an incomplete, contested concept shaped by legal and political choices" }, { name: "Ch 2: Essential Perspectives (Dana Neacsu)", desc: "Core economic and philosophical underpinnings of capitalist theory and practice" }, { name: "Ch 3: Democracy and Capitalism (Robert Prentice)", desc: "Wealth inequality creates political inequality that undermines democratic governance" }, { name: "Ch 4: The Techno-Optimist Case (Daniel R. Cahoy)", desc: "Market incentives and innovation can be harnessed to drive sustainable outcomes" }] }] },
@@ -381,6 +393,10 @@ const BOOKS = [
     icon: "\u{1F48E}",
     gradient: "linear-gradient(135deg, #c471f5, #fa71cd)",
     coverUrl: "https://covers.openlibrary.org/b/isbn/9780578740584-L.jpg",
+    altCoverUrls: [
+      "https://books.google.com/books/content?id=EeGGzgEACAAJ&printsec=frontcover&img=1&zoom=1",
+      "https://books.google.com/books/content?id=DNZHzgEACAAJ&printsec=frontcover&img=1&zoom=1"
+    ],
     summary: "Seven core disciplines every product manager must master: product design, economics, psychology, UX, data science, law & policy, and marketing & growth\u2014based on interviews with 67 product leaders from 52 companies.",
     chapters: [
       { title: "Discipline 1: Product Design", description: "Designing products from user needs through feature prioritization.", subsections: [{ label: "Key Ideas", items: [{ name: "Design Frameworks", desc: "Frameworks for designing products from user needs through feature prioritization and UX tradeoffs" }] }] },
