@@ -13,21 +13,42 @@ function sanitizeHTML(str) {
 }
 
 // ── Book Cover Fetching ─────────────────────────────────────────
-async function fetchCover(book) {
-  if (coverCache[book.id] !== undefined) return coverCache[book.id];
+async function fetchGoogleCover(book) {
   try {
     const q = encodeURIComponent(`intitle:${book.title} inauthor:${book.author.split(",")[0]}`);
     const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${q}&maxResults=1&fields=items/volumeInfo/imageLinks`);
     const data = await res.json();
     const raw = data?.items?.[0]?.volumeInfo?.imageLinks?.thumbnail || null;
-    // Use higher-res version and force HTTPS
-    const url = raw ? raw.replace("http://", "https://").replace("zoom=1", "zoom=0").replace("&edge=curl", "") : null;
-    coverCache[book.id] = url;
-    return url;
+    return raw ? raw.replace("http://", "https://").replace("zoom=1", "zoom=0").replace("&edge=curl", "") : null;
   } catch {
-    coverCache[book.id] = null;
     return null;
   }
+}
+
+function tryLoadImage(src) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => resolve(img.naturalWidth > 1 ? src : null);
+    img.onerror = () => resolve(null);
+    img.src = src;
+  });
+}
+
+async function fetchCover(book) {
+  if (coverCache[book.id] !== undefined) return coverCache[book.id];
+  // 1) Try hardcoded Open Library URL
+  if (book.coverUrl) {
+    const ok = await tryLoadImage(book.coverUrl);
+    if (ok) { coverCache[book.id] = book.coverUrl; return book.coverUrl; }
+  }
+  // 2) Fall back to Google Books API
+  const gUrl = await fetchGoogleCover(book);
+  if (gUrl) {
+    const ok = await tryLoadImage(gUrl);
+    if (ok) { coverCache[book.id] = gUrl; return gUrl; }
+  }
+  coverCache[book.id] = null;
+  return null;
 }
 
 function applyCoverToElement(el, url) {
@@ -44,13 +65,14 @@ function applyCoverToElement(el, url) {
 }
 
 async function loadCovers() {
-  for (const book of BOOKS) {
+  // Load all covers in parallel for faster rendering
+  await Promise.all(BOOKS.map(async book => {
     const url = await fetchCover(book);
     if (url) {
       const card = bookGrid.querySelector(`.book-card[data-id="${book.id}"] .book-cover`);
       applyCoverToElement(card, url);
     }
-  }
+  }));
 }
 
 // ── DOM References ─────────────────────────────────────────────
