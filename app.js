@@ -2,6 +2,16 @@
 let currentSection = "all";
 const coverCache = {}; // bookId -> cover URL or null
 
+// ── Security: HTML Sanitization ────────────────────────────────
+function sanitizeHTML(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 // ── Book Cover Fetching ─────────────────────────────────────────
 async function fetchCover(book) {
   if (coverCache[book.id] !== undefined) return coverCache[book.id];
@@ -21,7 +31,7 @@ async function fetchCover(book) {
 }
 
 function applyCoverToElement(el, url) {
-  if (!url || !el) return;
+  if (!url || !el || !url.startsWith("https://")) return;
   const img = document.createElement("img");
   img.src = url;
   img.alt = "";
@@ -73,9 +83,9 @@ function renderGrid(section) {
         <span class="book-cover-number">${book.id}</span>
       </div>
       <div class="book-info">
-        <span class="book-tag ${book.section}">${SECTION_LABELS[book.section]}</span>
-        <div class="book-title">${book.title}</div>
-        <div class="book-author">${book.author}</div>
+        <span class="book-tag ${sanitizeHTML(book.section)}">${sanitizeHTML(SECTION_LABELS[book.section])}</span>
+        <div class="book-title">${sanitizeHTML(book.title)}</div>
+        <div class="book-author">${sanitizeHTML(book.author)}</div>
       </div>
     </div>
   `).join("");
@@ -99,13 +109,13 @@ function openBook(book) {
     const subsectionsHTML = ch.subsections.map(sub => {
       const itemsHTML = sub.items.map(item => `
         <div class="principle">
-          <div class="principle-name">${item.name}</div>
-          <div class="principle-desc">${item.desc}</div>
+          <div class="principle-name">${sanitizeHTML(item.name)}</div>
+          <div class="principle-desc">${sanitizeHTML(item.desc)}</div>
         </div>
       `).join("");
 
       return `
-        <div class="sub-section-label">${sub.label}</div>
+        <div class="sub-section-label">${sanitizeHTML(sub.label)}</div>
         ${itemsHTML}
       `;
     }).join("");
@@ -116,11 +126,11 @@ function openBook(book) {
           <span class="chapter-arrow">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </span>
-          <span>${ch.title}</span>
+          <span>${sanitizeHTML(ch.title)}</span>
         </button>
         <div class="chapter-content">
           <div class="chapter-body">
-            ${ch.description ? `<div class="chapter-description">${ch.description}</div>` : ""}
+            ${ch.description ? `<div class="chapter-description">${sanitizeHTML(ch.description)}</div>` : ""}
             ${subsectionsHTML}
           </div>
         </div>
@@ -134,15 +144,15 @@ function openBook(book) {
       <span class="book-cover-icon">${book.icon}</span>
     </div>
     <div class="detail-meta">
-      <h2>${book.title}</h2>
-      ${book.subtitle ? `<div style="font-size:0.85rem;color:var(--text-secondary);margin-top:4px">${book.subtitle}</div>` : ""}
-      <div class="author">${book.author}</div>
-      <span class="book-tag ${book.section}">${SECTION_LABELS[book.section]}</span>
+      <h2>${sanitizeHTML(book.title)}</h2>
+      ${book.subtitle ? `<div style="font-size:0.85rem;color:var(--text-secondary);margin-top:4px">${sanitizeHTML(book.subtitle)}</div>` : ""}
+      <div class="author">${sanitizeHTML(book.author)}</div>
+      <span class="book-tag ${sanitizeHTML(book.section)}">${sanitizeHTML(SECTION_LABELS[book.section])}</span>
     </div>
 
     <div class="detail-summary">
       <h3>Summary</h3>
-      <p>${book.summary}</p>
+      <p>${sanitizeHTML(book.summary)}</p>
     </div>
 
     <div class="placeholder">
