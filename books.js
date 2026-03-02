@@ -185,7 +185,7 @@ const BOOKS = [
     gradient: "linear-gradient(135deg, #00c6ff, #0072ff)",
     coverUrl: "https://covers.openlibrary.org/b/isbn/9781394207114-L.jpg",
     altCoverUrls: [
-      "https://books.google.com/books/content?id=sRO5zwEACAAJ&printsec=frontcover&img=1&zoom=1",
+      "https://books.google.com/books/content?id=DjDFEAAAQBAJ&printsec=frontcover&img=1&zoom=1",
       "https://covers.openlibrary.org/b/isbn/9781394207121-L.jpg"
     ],
     summary: "A comprehensive field guide from McKinsey Digital on enterprise-wide digital and AI transformation\u2014covering roadmaps, talent, operating models, technology, data, and adoption at scale.",
