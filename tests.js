@@ -201,6 +201,19 @@ assert(!isValidCoverUrl(null), "Rejects null");
 assert(!isValidCoverUrl(""), "Rejects empty string");
 assert(!isValidCoverUrl(undefined), "Rejects undefined");
 assert(isValidCoverUrl("https://books.googleusercontent.com/thumbnail/v1/img.jpg"), "Accepts Google Books thumbnail URL");
+assert(isValidCoverUrl("https://covers.openlibrary.org/b/isbn/9781259588686-L.jpg"), "Accepts Open Library cover URL");
+
+// ══════════════════════════════════════════════════════════════
+// 5. HARDCODED COVER URLs
+// ══════════════════════════════════════════════════════════════
+section("Hardcoded Cover URLs");
+
+BOOKS.forEach(book => {
+  assert(
+    typeof book.coverUrl === "string" && book.coverUrl.startsWith("https://covers.openlibrary.org/b/isbn/"),
+    `Book ${book.id} ("${book.title}") has a valid Open Library cover URL`
+  );
+});
 
 // ══════════════════════════════════════════════════════════════
 // RESULTS

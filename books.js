@@ -7,6 +7,7 @@ const BOOKS = [
     section: "leadership",
     icon: "\u{1F3AF}",
     gradient: "linear-gradient(135deg, #f5af19, #f12711)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9781259588686-L.jpg",
     summary: "47 principles distilled from McKinsey\u2019s high-performance culture, covering personal effectiveness, team leadership, process management, and lasting professional growth.",
     chapters: [
       {
@@ -142,6 +143,7 @@ const BOOKS = [
     section: "leadership",
     icon: "\u{1F451}",
     gradient: "linear-gradient(135deg, #667eea, #764ba2)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9781668098349-L.jpg",
     summary: "A comprehensive guide from McKinsey on how to excel at every stage of the CEO journey\u2014from preparing for the role through leaving a lasting legacy, featuring case studies from Dell, Merck, Nasdaq, and more.",
     chapters: [
       { title: "Part I: Spring \u2014 Preparing to Lead", description: "How aspiring CEOs should prepare for the transition.", subsections: [{ label: "Key Themes", items: [{ name: "Stepping Up to the Role", desc: "How aspiring CEOs should prepare for the transition before they take the seat" }, { name: "The Blind Spots Survey", desc: "Research-based data on what catches new CEOs off guard most often" }] }] },
@@ -158,6 +160,7 @@ const BOOKS = [
     section: "leadership",
     icon: "\u{1F31F}",
     gradient: "linear-gradient(135deg, #f093fb, #f5576c)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9781982179670-L.jpg",
     summary: "Based on McKinsey research, this book identifies six mindsets that separate exceptional CEOs from the rest, covering direction-setting, organization alignment, leader mobilization, stakeholder and board management, and personal effectiveness.",
     chapters: [
       { title: "Mindset 1: Direction-Setting \u2014 Be Bold", description: "Setting transformative strategic direction.", subsections: [{ label: "Key Themes", items: [{ name: "Vision: Reframe the Game", desc: "Redefine the playing field rather than optimizing within existing constraints" }, { name: "Strategy: Make Big Moves Early", desc: "Allocate resources decisively toward a few transformative bets" }, { name: "Resource Allocation: Act Like an Outsider", desc: "Reallocate capital as aggressively as a new owner would" }] }] },
@@ -176,6 +179,7 @@ const BOOKS = [
     section: "leadership",
     icon: "\u{26A1}",
     gradient: "linear-gradient(135deg, #00c6ff, #0072ff)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9781394207114-L.jpg",
     summary: "A comprehensive field guide from McKinsey Digital on enterprise-wide digital and AI transformation\u2014covering roadmaps, talent, operating models, technology, data, and adoption at scale.",
     chapters: [
       { title: "Introduction", description: "Digital transformation is about rewiring the entire enterprise, not running isolated tech projects.", subsections: [{ label: "Key Themes", items: [{ name: "Enterprise Capabilities for Competitive Advantage", desc: "Digital transformation is about rewiring the entire enterprise, not running isolated tech projects" }] }] },
@@ -195,6 +199,7 @@ const BOOKS = [
     section: "leadership",
     icon: "\u{1F9ED}",
     gradient: "linear-gradient(135deg, #11998e, #38ef7d)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9781119886105-L.jpg",
     summary: "An updated guide to authentic leadership that helps emerging leaders discover their life story, develop self-awareness, live their values, and empower others\u2014featuring Satya Nadella, Mary Barra, Indra Nooyi, and 48 new interviewees.",
     chapters: [
       { title: "Chapter 1: Your Life Story", description: "Every leader\u2019s journey begins with understanding the experiences that formed them.", subsections: [{ label: "Key Ideas", items: [{ name: "Discover How Your Life Narrative Shapes Your Leadership", desc: "Every leader\u2019s journey begins with understanding the experiences that formed them" }] }] },
@@ -215,6 +220,7 @@ const BOOKS = [
     section: "leadership",
     icon: "\u{1F4AA}",
     gradient: "linear-gradient(135deg, #fc5c7d, #6a82fb)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9781982137274-L.jpg",
     summary: "Covey\u2019s timeless framework for personal and interpersonal effectiveness, built on character-based principles: move from dependence to independence (Private Victory), then to interdependence (Public Victory), sustained by continuous renewal.",
     chapters: [
       { title: "Part One: Paradigms and Principles", description: "The foundation: character-based effectiveness.", subsections: [{ label: "Key Ideas", items: [{ name: "Inside-Out Approach to Effectiveness", desc: "True change starts with character and principles, not personality-driven techniques" }] }] },
@@ -231,6 +237,7 @@ const BOOKS = [
     section: "ai-trends",
     icon: "\u{1F916}",
     gradient: "linear-gradient(135deg, #4facfe, #00f2fe)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780393254297-L.jpg",
     summary: "A framework for understanding the three great rebalancings of the digital age: mind vs. machine, product vs. platform, and core vs. crowd\u2014and how leaders should navigate each shift.",
     chapters: [
       { title: "Part One: Mind and Machine", description: "The evolving relationship between human judgment and algorithmic intelligence.", subsections: [{ label: "Chapters", items: [{ name: "Ch 1: \"All the News That\u2019s Fit to Print\"", desc: "How algorithmic prediction now outperforms human judgment in many domains" }, { name: "Ch 2: The Decline of the HiPPO", desc: "Data-driven decisions are replacing the Highest-Paid Person\u2019s Opinion in organizations" }, { name: "Ch 3: Don\u2019t Automate, Augment", desc: "The most powerful approach combines human judgment with machine intelligence" }, { name: "Ch 4: Superhuman Pattern Recognition", desc: "AI systems now detect patterns in data far beyond human cognitive capacity" }, { name: "Ch 5: The Next Step in Automation", desc: "Machine learning is automating not just manual labor but cognitive work" }] }] },
@@ -246,6 +253,7 @@ const BOOKS = [
     section: "ai-trends",
     icon: "\u{1F52C}",
     gradient: "linear-gradient(135deg, #a18cd1, #fbc2eb)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780231168724-L.jpg",
     summary: "A toolkit for developing scientific habits of mind\u2014numerical fluency, statistical literacy, logical reasoning, and evidence-based thinking\u2014to navigate the modern information landscape.",
     chapters: [
       { title: "Introduction: Information, Misinformation, and Our Planet\u2019s Future", description: "The information explosion demands scientific thinking.", subsections: [{ label: "Key Ideas", items: [{ name: "The Case for Scientific Thinking", desc: "The information explosion demands scientific thinking to separate signal from noise" }] }] },
@@ -274,6 +282,7 @@ const BOOKS = [
     section: "ai-trends",
     icon: "\u{1F6E1}\uFE0F",
     gradient: "linear-gradient(135deg, #434343, #000000)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9781984877710-L.jpg",
     summary: "Microsoft\u2019s president explores the duality of technology as both tool and weapon\u2014covering surveillance, privacy, cybersecurity, AI ethics, digital diplomacy, and the geopolitical implications of the tech age.",
     chapters: [
       { title: "Ch 1: Surveillance", description: "Government mass surveillance and tech.", subsections: [{ label: "Key Ideas", items: [{ name: "Government Mass Surveillance", desc: "How government mass surveillance programs reshaped the relationship between tech and the state" }] }] },
@@ -303,6 +312,7 @@ const BOOKS = [
     section: "ai-trends",
     icon: "\u{2696}\uFE0F",
     gradient: "linear-gradient(135deg, #ff9a9e, #fecfef)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780262538190-L.jpg",
     summary: "A concise introduction to the ethical challenges of AI\u2014from bias and surveillance to responsibility gaps and policy proposals\u2014grounded in philosophy and practical application.",
     chapters: [
       { title: "Ch 1: Mirror, Mirror on the Wall", description: "AI as a mirror of human values.", subsections: [{ label: "Key Ideas", items: [{ name: "AI as Mirror", desc: "AI forces us to reflect on what it means to be human and what we value" }] }] },
@@ -328,6 +338,7 @@ const BOOKS = [
     section: "ai-trends",
     icon: "\u{1F30D}",
     gradient: "linear-gradient(135deg, #56ab2f, #a8e063)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9781647691752-L.jpg",
     summary: "A multidisciplinary exploration of whether capitalism can be reformed for sustainability\u2014examining foundations, the American model, corporate governance, human rights, cooperatives, regulation, and environmental law.",
     chapters: [
       { title: "Part I: Foundations of Capitalism", description: "Philosophical and economic underpinnings.", subsections: [{ label: "Chapters", items: [{ name: "Ch 1: Defining the Undefinable (Inara Scott)", desc: "Capitalism is an incomplete, contested concept shaped by legal and political choices" }, { name: "Ch 2: Essential Perspectives (Dana Neacsu)", desc: "Core economic and philosophical underpinnings of capitalist theory and practice" }, { name: "Ch 3: Democracy and Capitalism (Robert Prentice)", desc: "Wealth inequality creates political inequality that undermines democratic governance" }, { name: "Ch 4: The Techno-Optimist Case (Daniel R. Cahoy)", desc: "Market incentives and innovation can be harnessed to drive sustainable outcomes" }] }] },
@@ -344,6 +355,7 @@ const BOOKS = [
     section: "product",
     icon: "\u{1F4CB}",
     gradient: "linear-gradient(135deg, #2af598, #009efd)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780984782819-L.jpg",
     summary: "The definitive guide to landing a PM role at top tech companies, covering the PM role, resume prep, behavioral and estimation questions, product design, case questions, and company-specific interview strategies.",
     chapters: [
       { title: "Ch 1: The Product Manager Role", description: "What PMs actually do.", subsections: [{ label: "Key Ideas", items: [{ name: "What PMs Actually Do", desc: "Own the product vision, align teams, and drive execution" }] }] },
@@ -368,6 +380,7 @@ const BOOKS = [
     section: "product",
     icon: "\u{1F48E}",
     gradient: "linear-gradient(135deg, #c471f5, #fa71cd)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780578740584-L.jpg",
     summary: "Seven core disciplines every product manager must master: product design, economics, psychology, UX, data science, law & policy, and marketing & growth\u2014based on interviews with 67 product leaders from 52 companies.",
     chapters: [
       { title: "Discipline 1: Product Design", description: "Designing products from user needs through feature prioritization.", subsections: [{ label: "Key Ideas", items: [{ name: "Design Frameworks", desc: "Frameworks for designing products from user needs through feature prioritization and UX tradeoffs" }] }] },
@@ -387,6 +400,7 @@ const BOOKS = [
     section: "product",
     icon: "\u{1F4BB}",
     gradient: "linear-gradient(135deg, #f7971e, #ffd200)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780984782857-L.jpg",
     summary: "The essential guide for technical interview preparation, covering data structures, algorithms, system design, and language-specific concepts with 189 practice problems and solutions.",
     chapters: [
       { title: "Part I: The Interview Process", description: "How tech hiring works and foundational concepts.", subsections: [{ label: "Key Concepts", items: [{ name: "Behind the Scenes", desc: "How tech hiring really works at top companies from resume screen to offer" }, { name: "Big O Notation", desc: "Master time and space complexity analysis as the foundation for all algorithm discussion" }] }] },
@@ -402,6 +416,7 @@ const BOOKS = [
     section: "technical",
     icon: "\u{1F9E0}",
     gradient: "linear-gradient(135deg, #ff512f, #dd2476)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780134610993-L.jpg",
     summary: "The definitive AI textbook covering intelligent agents, search, logic, probabilistic reasoning, machine learning, deep learning, NLP, computer vision, robotics, and the philosophy and ethics of AI.",
     chapters: [
       { title: "Part I: Artificial Intelligence", description: "Foundations and agent architectures.", subsections: [{ label: "Chapters", items: [{ name: "Ch 1: Introduction", desc: "History, scope, and foundational questions of AI as a scientific and engineering discipline" }, { name: "Ch 2: Intelligent Agents", desc: "Agent architectures, rationality, task environments, and the design of autonomous systems" }] }] },
@@ -421,6 +436,7 @@ const BOOKS = [
     section: "technical",
     icon: "\u{1F6E0}\u{FE0F}",
     gradient: "linear-gradient(135deg, #0f2027, #2c5364)",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9781098166304-L.jpg",
     summary: "A comprehensive guide to building reliable applications on top of foundation models, covering evaluation, prompt engineering, RAG, agents, finetuning, dataset engineering, inference optimization, and end-to-end AI system architecture.",
     chapters: [
       { title: "Chapter 1: Introduction to AI Engineering", description: "How foundation models created a new discipline distinct from traditional ML engineering.", subsections: [{ label: "Key Ideas", items: [{ name: "A New Discipline", desc: "How foundation models created a new discipline distinct from traditional ML engineering" }] }] },
